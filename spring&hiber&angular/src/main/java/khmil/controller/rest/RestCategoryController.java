@@ -1,7 +1,6 @@
 package khmil.controller.rest;
 
 import khmil.controller.externalModel.CategoryDto;
-import khmil.model.Category;
 import khmil.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
