@@ -15,6 +15,8 @@ public class WebConfiguration implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext annotationConfigApplicationContext = new AnnotationConfigWebApplicationContext();
         annotationConfigApplicationContext.scan("khmil");
+
+
         servletContext.addListener(new ContextLoaderListener(annotationConfigApplicationContext));
 
         ServletRegistration.Dynamic dynamic = servletContext.addServlet("dispatcher",

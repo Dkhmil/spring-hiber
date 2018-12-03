@@ -22,12 +22,12 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class AppConfiguration extends WebMvcConfigurerAdapter {
 
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("resources/**")
                 .addResourceLocations("/resources");
     }
-
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

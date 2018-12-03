@@ -1,5 +1,8 @@
 package khmil.controller.externalModel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import khmil.model.User;
+
 import javax.validation.constraints.NotNull;
 
 public class UserDto {
@@ -7,7 +10,9 @@ public class UserDto {
     @NotNull
     private String email;
     @NotNull
+    @JsonIgnore
     private String password;
+    @JsonIgnore
     private String verifyPassword;
     private String token;
     private String firstName;
@@ -20,6 +25,10 @@ public class UserDto {
         this.token = token;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public UserDto() {
+
     }
 
     public Long getId() {
@@ -76,5 +85,11 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public static UserDto of(User user) {
+        UserDto dto = new UserDto();
+        dto.setEmail(user.getEmail());
+        return dto;
     }
 }
