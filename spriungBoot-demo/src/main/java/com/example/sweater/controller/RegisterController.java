@@ -17,12 +17,12 @@ public class RegisterController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/register")
+    @GetMapping("/registration")
     public String registration() {
         return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registration")
     public String addUser(User user, Map<String, Object> model) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
         if (userFromDB != null) {
