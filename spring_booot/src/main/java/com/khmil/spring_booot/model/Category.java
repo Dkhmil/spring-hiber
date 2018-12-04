@@ -1,5 +1,7 @@
 package com.khmil.spring_booot.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Category {
     private Long id;
     @Column(name = "CATEGORY_NAME")
     private String categoryName;
+    @JsonManagedReference
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> productList;
 

@@ -11,7 +11,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     Optional<Category> findByCategoryNameAndProductList_price(String name, double price);
 
-    @Query(value = "from Category c where c.name =: name")
+    @Query(value = "from Category c where c.categoryName =:name")
     Optional<Category> getAllBySomeCriteria(@Param("name") String name);
-
 }

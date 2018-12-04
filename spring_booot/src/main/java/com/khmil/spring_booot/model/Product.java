@@ -1,5 +1,7 @@
 package com.khmil.spring_booot.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,7 @@ public class Product {
     private String description;
     @JoinColumn(name = "FK_CATEGORIES")
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Category category;
 
     public Long getId() {
