@@ -1,9 +1,6 @@
 package com.example.sweater.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Message {
@@ -15,12 +12,31 @@ public class Message {
     private String tag;
     private String text;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "USER_ID")
+    private User author;
+
+    public User getAutor() {
+        return author;
+    }
+
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<none>";
+
+    }
+
+    public void setAutor(User autor) {
+        this.author = autor;
+    }
+
+
     public Message() {
     }
 
-    public Message(String tag, String text) {
+    public Message(String tag, String text, User author) {
         this.tag = tag;
         this.text = text;
+        this.author = author;
     }
 
     public String getTag() {
